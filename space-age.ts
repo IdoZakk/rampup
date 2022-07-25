@@ -15,12 +15,11 @@ const convertYearsToPlanet = (years: number, planet: string): unknown => {
 const convertSecondsToYears = (seconds: number): number => {
 return seconds / 31557600
 }
-export const age = (planet: unknown, seconds: unknown): unknown => {
+export const age = (planet: keyof typeof plantToMultiplier, seconds: number): unknown => {
   let result: unknown = 'type error'
-  if (typeof seconds === 'number' && typeof planet === 'string') {
+
     let years = convertSecondsToYears(seconds) as number
     result = convertYearsToPlanet(years, planet.toLocaleLowerCase())
-  }
   return result
 }
 
