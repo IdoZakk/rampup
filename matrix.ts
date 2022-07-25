@@ -1,10 +1,10 @@
+import * as os from 'os';
 export class Matrix {
   private rowMatrix: number[][] = [];
   private columnMatrix: number[][] = [];
   constructor(input: string) {
-    let rows: string[] = input.split('\n');
-    let rowNumber = 0;
-      rows.forEach(row => {
+    let rows: string[] = input.split(os.EOL);
+      rows.forEach((row,rowNumber) => {
         this.rowMatrix.push([]);
         let columnNumber = 0;
         row.match(/\d+/g)?.forEach( item => { //each number
